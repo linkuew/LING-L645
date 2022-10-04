@@ -14,13 +14,13 @@ bigrams = dict()
 for sent in corpus:
     sent = re.sub('([.,!?])', r' \1', sent)
     words = sent.split()
-    words = ['<BOS>'] + words
     for word in words:
         try:
             unigrams[word] += 1
         except:
             unigrams[word] = 1
 
+    words = ['<BOS>'] + words
     for i in range(len(words)-1):
         try:
             bigrams[words[i]+words[i+1]] += 1
