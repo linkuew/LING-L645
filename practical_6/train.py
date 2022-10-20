@@ -21,12 +21,12 @@ idx2word = {v: k for k, v in word2idx.items()}
 x_train = []
 y_train = []
 for tokens in training_samples:
-    for i in range(len(tokens) - 1): #!!!#
-#    for i in range(len(tokens) - 2):
-        x_train.append([word2idx[tokens[i]]]) #!!!#
-        y_train.append([word2idx[tokens[i+1]]]) #!!!#
-#        x_train.append([word2idx[tokens[i]], word2idx[tokens[i+1]]])
-#        y_train.append([word2idx[tokens[i+2]]])
+#    for i in range(len(tokens) - 1): #!!!#
+    for i in range(len(tokens) - 2):
+#        x_train.append([word2idx[tokens[i]]]) #!!!#
+#        y_train.append([word2idx[tokens[i+1]]]) #!!!#
+        x_train.append([word2idx[tokens[i]], word2idx[tokens[i+1]]])
+        y_train.append([word2idx[tokens[i+2]]])
 
 x_train = np.array(x_train)
 y_train = np.array(y_train)
@@ -34,22 +34,22 @@ y_train = np.array(y_train)
 ###############################################################################
 
 BATCH_SIZE = 1
-NUM_EPOCHS = 10
+NUM_EPOCHS = 20
 
 train_set = np.concatenate((x_train, y_train), axis=1)
 train_loader = DataLoader(train_set, batch_size=BATCH_SIZE)
 
 loss_function = nn.NLLLoss()
-model = BigramNNmodel(len(vocabulary), EMBEDDING_DIM, CONTEXT_SIZE, HIDDEN_DIM)
-#model = TrigramNNmodel(len(vocabulary), EMBEDDING_DIM, TRI_CONTEXT_SIZE, HIDDEN_DIM)
+#model = BigramNNmodel(len(vocabulary), EMBEDDING_DIM, CONTEXT_SIZE, HIDDEN_DIM)
+model = TrigramNNmodel(len(vocabulary), EMBEDDING_DIM, TRI_CONTEXT_SIZE, HIDDEN_DIM)
 optimiser = torch.optim.Adam(model.parameters(), lr=0.01)
 
 for epoch in range(NUM_EPOCHS):
     for i, data_tensor in enumerate(train_loader):
-        context_tensor = data_tensor[:,0:1] #!!!#
-        target_tensor = data_tensor[:,1] #!!!#
-#        context_tensor = data_tensor[:,0:2]
-#        target_tensor = data_tensor[:,2]
+#        context_tensor = data_tensor[:,0:1] #!!!#
+#        target_tensor = data_tensor[:,1] #!!!#
+        context_tensor = data_tensor[:,0:2]
+        target_tensor = data_tensor[:,2]
 
         model.zero_grad()
 
