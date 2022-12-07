@@ -1,0 +1,8 @@
+Instructions to run:
+
+$ python3
+
+>> import spellcheck
+
+>> spellcheck.correction('whet')
+# The output should be 'what'
