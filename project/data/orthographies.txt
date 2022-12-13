@@ -1,4 +1,4 @@
-#othography GOST 7.79-2000
+#orthography GOST
 а	a
 б	b
 в	v
@@ -32,7 +32,6 @@
 э	e'
 ю	yu
 я	уа
-
 #orthography GOST 52535.1-2006
 а	a
 б	b
@@ -67,14 +66,13 @@
 э	e
 ю	iu
 я	ia
-
 #orthography iihf
 а	a
 б	b
 в	v
 г	g
 д	d
-е	ye,ie,e
+е	ye
 ё	yo
 ж	zh
 з	z
@@ -102,7 +100,6 @@
 э	e
 ю	yu
 я	ya
-
 #orthography loc
 а	a
 б	b
@@ -137,15 +134,14 @@
 э	e
 ю	iu
 я	ia
-
 #orthography bgn/pcgn
 а	a
 б	b
 в	v
 г	g
 д	d
-е	ye,e
-ё	ye,ë
+е	ye
+ё	yë
 ж	zh
 з	z
 и	i
@@ -172,7 +168,6 @@
 э	e
 ю	yu
 я	ya
-
 #orthography custom1
 а	ah
 б	b
@@ -207,7 +202,6 @@
 э	eh
 ю	yoo
 я	yah
-
 #orthography custom2
 а	ah
 б	b
